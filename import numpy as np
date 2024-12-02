@@ -1,0 +1,6 @@
+import numpy as np
+
+# Load the .npy file
+data = np.load('your_file.npy')
+
+print(data)
