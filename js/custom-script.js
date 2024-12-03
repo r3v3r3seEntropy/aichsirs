@@ -1,34 +1,7 @@
 // Contact Popup functionality
 document.addEventListener('DOMContentLoaded', function() {
     // Create the popup HTML
-    const popupHTML = `
-        <div id="contactPopup" class="contact-popup">
-            <div class="popup-content">
-                <span class="close">&times;</span>
-                <h2>Contact Us</h2>
-                <div class="contact-info">
-                    <div class="info-item">
-                        <i class="icon fa fa-map-marker-alt"></i>
-                        <p>123 Travel Street, Adventure City, 12345</p>
-                    </div>
-                    <div class="info-item">
-                        <i class="icon fa fa-phone"></i>
-                        <p><a href="tel:+11256326501">+11 256 3265 01</a></p>
-                    </div>
-                    <div class="info-item">
-                        <i class="icon fa fa-envelope"></i>
-                        <p><a href="mailto:INFO@TREKER.COM">INFO@TREKER.COM</a></p>
-                    </div>
-                </div>
-                <div class="social-links">
-                    <a href="#"><i class="fab fa-facebook-f"></i></a>
-                    <a href="#"><i class="fab fa-twitter"></i></a>
-                    <a href="#"><i class="fab fa-instagram"></i></a>
-                    <a href="#"><i class="fab fa-linkedin-in"></i></a>
-                </div>
-            </div>
-        </div>
-    `;
+    
 
     // Append the popup HTML to the body
     document.body.insertAdjacentHTML('beforeend', popupHTML);
