@@ -1,36 +1,541 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-<meta charset="utf-8">
-<title>Coming Soon</title>
-<!-- Stylesheets -->
-<link href="css/bootstrap.css" rel="stylesheet">
-<link href="css/style.css" rel="stylesheet">
-<link rel="shortcut icon" href="images/favicon.png" type="image/x-icon">
-<link rel="icon" href="images/favicon.png" type="image/x-icon">
-<!-- Responsive -->
-<meta http-equiv="X-UA-Compatible" content="IE=edge">
-<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0">
-<link href="css/responsive.css" rel="stylesheet">
+    <meta charset="utf-8">
+    <title>Simana Periye - Gallery</title>
+    <!-- Meta Description for SEO -->
+    <meta name="description" content="Explore the breathtaking destinations of Spiti Valley, Nepal, and Arunachal Pradesh through our extensive gallery.">
+    
+    <!-- Stylesheets -->
+    <link href="css/bootstrap.css" rel="stylesheet">
+    <link href="css/style.css" rel="stylesheet">
+    <link rel="shortcut icon" href="images/favicon.png" type="image/x-icon">
+    <link rel="icon" href="images/favicon.png" type="image/x-icon">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css" integrity="sha512-dNmjqMkl8Z/jkXpGZphjrO88EASOQDwKMgwaw6ewGPk0zljYknPf+jIlL07UMakPfRgFvWnF68uCkfnhK14cJQ==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+
+    <!-- Fancybox CSS -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/fancybox/3.5.7/jquery.fancybox.min.css" integrity="sha512-jwB1Iu8c8HBF7k/2hjGBrFL1sQ5KcLJc2DwYfDjh8cFkA2jDnyPNqz5ymfUg/4vKqMNjhzp7l1Cm2N/hp95kEA==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+
+    <!-- Responsive -->
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0">
+    <link href="css/responsive.css" rel="stylesheet">
+    <!--[if lt IE 9]><script src="https://cdnjs.cloudflare.com/ajax/libs/html5shiv/3.7.3/html5shiv.js"></script><![endif]--> 
+
+    <!-- Inline CSS for Light Yellow Background and Gallery Styling -->
+    <style>
+        body {
+            background-color: #FFFFE0; /* Light Yellow */
+        }
+        /* Gallery Section Styling */
+        .gallery-section {
+            padding: 60px 0;
+        }
+        .gallery-section .title-box {
+            text-align: center;
+            margin-bottom: 40px;
+        }
+        .gallery-section .title-box h2 {
+            font-size: 2.5em;
+            margin-bottom: 10px;
+        }
+        .gallery-section .title-box p {
+            font-size: 1.2em;
+            color: #555;
+        }
+        .gallery-section .gallery-carousel .item {
+            position: relative;
+            overflow: hidden;
+        }
+        /* Ensure all carousel images have the same size */
+        .gallery-section .gallery-carousel .item img {
+            width: 100%;
+            height: 300px; /* Fixed height for uniformity */
+            object-fit: cover; /* Ensures image covers the container without distortion */
+            display: block;
+        }
+        .gallery-section .gallery-carousel .item .carousel-caption {
+            position: absolute;
+            bottom: 20px;
+            left: 20px;
+            background: rgba(0, 0, 0, 0.6);
+            padding: 10px 20px;
+            border-radius: 5px;
+        }
+        .gallery-section .gallery-carousel .item .carousel-caption h5,
+        .gallery-section .gallery-carousel .item .carousel-caption p {
+            color: #fff;
+            margin: 0;
+        }
+        /* Toggle Buttons Styling */
+        .gallery-section .toggle-buttons {
+            text-align: center;
+            margin-top: 20px;
+        }
+        .gallery-section .toggle-buttons .btn {
+            margin: 0 5px;
+        }
+        .gallery-section .toggle-buttons .btn.active {
+            background-color: #007bff;
+            border-color: #007bff;
+        }
+        /* Adjust Carousel Controls if needed */
+        .gallery-section .owl-nav {
+            display: none; /* Hide default navigation */
+        }
+        /* Responsive Adjustments */
+        @media (max-width: 768px) {
+            .gallery-section .title-box h2 {
+                font-size: 2em;
+            }
+            .gallery-section .gallery-carousel .item img {
+                height: 200px; /* Adjust height for smaller screens */
+            }
+        }
+
+        /* Spiti and Nepal Gallery Styling */
+        .spiti-gallery .row,
+        .nepal-gallery .row,
+        .arunachal-gallery .row {
+            display: flex;
+            flex-wrap: wrap;
+        }
+        .spiti-gallery .col-md-4, .spiti-gallery .col-sm-6,
+        .nepal-gallery .col-md-4, .nepal-gallery .col-sm-6,
+        .arunachal-gallery .col-md-4, .arunachal-gallery .col-sm-6 {
+            padding: 5px;
+        }
+        .spiti-gallery img,
+        .nepal-gallery img,
+        .arunachal-gallery img {
+            width: 100%;
+            height: 200px; /* Fixed height for uniformity */
+            object-fit: cover; /* Ensures image covers the container without distortion */
+            border-radius: 5px;
+            transition: transform 0.3s ease;
+        }
+        .spiti-gallery img:hover,
+        .nepal-gallery img:hover,
+        .arunachal-gallery img:hover {
+            transform: scale(1.05);
+        }
+    </style>
 </head>
 
 <body>
+
   <div class="page-wrapper"> 
-    <!-- Coming Soon Section -->
-    <section class="coming-soon" style="text-align: center; padding: 100px 20px; font-family: Arial, sans-serif;">
-        <div class="container">
-            <h1 style="font-size: 3em; margin-bottom: 20px;">Coming Soon</h1>
-            <p style="font-size: 1.2em;">We're working hard to bring something amazing to you. Stay tuned!</p>
+    
+    <!-- Preloader -->
+    <div class="preloader"></div> 
+        
+    <div class="search-backdrop"></div>
+        
+    <!-- Main Header-->
+    <header class="main-header">
+        <div class="header-top">
+            <div class="auto-container">
+                <div class="inner clearfix">
+                    <div class="top-left clearfix">
+                        <ul class="info clearfix">
+                            <li><i class="icon fa fa-envelope"></i> <a href="mailto:simanaperiyet@gmail.com">simanaperiyet@gmail.com</a></li>
+                            <li><i class="icon fa fa-phone-circle"></i> <a href="tel:+919903149484">9903149484</a></li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!-- Header Upper -->
+        <div class="header-upper">        
+            <div class="auto-container">
+                <!-- Main Box -->
+                <div class="main-box clearfix">
+                    <!--Logo-->
+                    <div class="logo-box">
+                         <div class="logo"><a href="index.html" title="Treker"><img src="images/logo.png" alt="Treker" title="Treker"></a></div>
+                    </div>
+
+                    <div class="nav-box clearfix">
+                        <!--Nav Outer-->
+                        <div class="nav-outer clearfix">         
+                            <nav class="main-menu">
+                                <ul class="navigation clearfix">
+                                    <li class="current dropdown"><a href="index.html">Home</a></li>
+                                    <li class="dropdown"><a href="about.html">Our Team</a></li>
+                                    <li><a href="destinations.html">Destinations</a></li>
+                                    <li class="dropdown"><a href="blog.html">Gallery</a></li>
+                                </ul>
+                            </nav>
+                            <!-- Main Menu End-->
+                        </div>
+                        <!--Nav Outer End-->
+
+                        <div class="links-box clearfix">
+                            <div class="link search-btn search-toggle"><span class="icon far fa-search"></span></div>
+                        </div>
+
+                        <!-- Hidden Nav Toggler -->
+                        <div class="nav-toggler">
+                            <button class="hidden-bar-opener"><span class="icon"><img src="images/icons/menu-icon.svg" alt="Menu Icon"></span></button>
+                        </div>
+
+                    </div>
+
+                    <!-- End Header Upper -->
+                    <div class="search-box">
+                        <div class="outer-container">
+                            <div class="inner-box">
+                                <div class="form-box">
+                                    <div class="s-close-btn"><span class="icon far fa-times"></span></div>
+                                    <span class="s-icon fa fa-search"></span>
+                                    <form method="post" action="index.html">
+                                        <div class="form-group">
+                                            <input type="search" name="search" value="" placeholder="Search Here" required="" loading="lazy">
+                                        </div>
+                                    </form>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                </div>
+            </div>
+        </div>
+    </header>
+    <!--End Main Header -->
+
+    <!-- Hidden Navigation Bar -->
+    <section class="hidden-bar">
+        <!-- Hidden Bar Wrapper -->
+        <div class="hidden-bar-wrapper">
+            <div class="hidden-bar-closer"><span class="icon"><svg class="icon-close" role="presentation" viewBox="0 0 16 14"><path d="M15 0L1 14m14 0L1 0" stroke="currentColor" fill="none" fill-rule="evenodd"></path></svg></span></div>
+            <div class="nav-logo-box">
+                <div class="logo"><a href="index.html" title="Treker"><img src="images/logo.svg" alt="Treker" title="Treker"></a></div>
+            </div>
+            <!-- .Side-menu -->
+            <div class="side-menu">
+                 <ul class="navigation clearfix">
+                    <li class="current dropdown"><a href="index.html">Home</a>
+                        <ul>
+                            <li><a href="index.html">Home 01</a></li>
+                            <li><a href="index-2.html">Home 02</a></li>
+                        </ul>
+                    </li>
+                    <li class="dropdown"><a href="about.html">About Us</a>
+                        <ul>
+                            <li><a href="team.html">Our Team</a></li>
+                            <li><a href="team-member.html">Team Member</a></li>
+                            <li><a href="faq.html">FAQs</a></li>
+                            <li><a href="gallery.html">Gallery</a></li>
+                        </ul>
+                    </li>
+                    <li class="dropdown"><a href="shop.html">Shop</a>
+                        <ul>
+                            <li><a href="shop.html">Our Shop</a></li>
+                            <li><a href="product-single.html">Product Details</a></li>
+                            <li><a href="wishlist.html">My Wishlist</a></li>
+                            <li><a href="shopping-cart.html">Shopping Cart</a></li>
+                            <li><a href="checkout.html">Checkout</a></li>
+                            <li><a href="signup.html">Signup</a></li>
+                            <li><a href="login.html">Login</a></li>
+                            <li><a href="reset-password.html">Forgot Password</a></li>
+                        </ul>
+                    </li>
+                    <li><a href="destinations.html">Destinations</a></li>
+                    <li><a href="trekking.html">Trekking</a></li>
+                    <li class="dropdown"><a href="#">Pages</a>
+                        <ul>
+                            <li><a href="activities.html">Activities</a></li>
+                            <li><a href="destinations-2.html">Destinations 02</a></li>
+                            <li><a href="tours.html">Tours</a></li>
+                            <li><a href="packages.html">Packages 01</a></li>
+                            <li><a href="packages-2.html">Packages 02</a></li>
+                            <li><a href="booking.html">Booking</a></li>
+                            <li><a href="terms-conditions.html">Terms & Conditions</a></li>
+                            <li><a href="error-page.html">404 Page</a></li>
+                        </ul>
+                    </li>
+                    <li class="dropdown"><a href="blog.html">News</a>
+                        <ul>
+                            <li><a href="blog.html">Our Blog</a></li>
+                            <li><a href="blog-2.html">Blog Classic</a></li>
+                            <li><a href="blog-single.html">Blog Details</a></li>
+                        </ul>
+                    </li>
+                </ul>
+            </div><!-- /.Side-menu -->
+            
+            <div class="links-box clearfix">
+                <div class="clearfix">
+                    <div class="link"><a href="login.html" class="theme-btn btn-style-one"><span>Login<i class="icon far fa-angle-right"></i></span></a></div>
+                    <div class="link"><a href="signup.html" class="theme-btn btn-style-two"><span>Sign Up<i class="icon far fa-angle-right"></i></span></a></div>
+                </div>
+            </div>
+        
+        </div><!-- / Hidden Bar Wrapper -->
+    </section>
+    <!-- / Hidden Bar -->
+
+	<div class="cart-backdrop"></div>
+	
+    <!--Cart Sidebar-->
+    <div class="cart-sidebar">
+        <div class="cart-side-inner">
+            <div class="cart-side-header">
+                <div class="closer-btn"><span>Close</span></div>
+                <h5>Shopping Cart</h5>
+            </div>
+            <div class="prod-box">
+                <div class="prod-block">
+                    <div class="prod-inner">
+                        <div class="prod-thumb"><a href="#"><img src="images/resource/shop/shop-thumb-1.jpg" alt="Smart Air Bag Travel" loading="lazy"></a></div>
+                        <div class="remove-item"><a href="#"><i class="far fa-times"></i></a></div>
+                        <div class="prod-title"><a href="#">Smart Air Bag Travel</a></div>
+                        <div class="quantity-box">
+                            <div class="item-quantity">
+                                <input class="qty-spinner" type="text" value="1" name="quantity" loading="lazy">
+                            </div>
+                        </div>
+                        <div class="calculations">1 x <span>$225.00</span></div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="lower-content">
+            <div class="count clearfix">
+                <span class="ttl">Subtotal</span>
+                <span class="dtl">$225.00</span>
+            </div>
+            <div class="links clearfix">
+                <div class="left"><a href="#" class="theme-btn btn-style-one"><span>View Cart</span></a></div>
+                <div class="right"><a href="#" class="theme-btn btn-style-two"><span>Checkout</span></a></div>
+            </div>
+        </div>
+    </div>
+    <br><br><br><br> 
+
+    <!-- Gallery Section -->
+    <section class="gallery-section">
+        <div class="auto-container">
+            <div class="title-box">
+            </div>
+            <div class="gallery-carousel owl-theme owl-carousel">
+                <!-- Slide 1: Spiti Valley -->
+                <div class="item">
+                    <div class="spiti-gallery">
+                        <div class="row">
+                            <div class="col-md-4 col-sm-6 mb-4">
+                                <a href="images/spiti/1.jpeg" data-fancybox="spiti-gallery">
+                                    <img src="images/spiti/1.jpeg" alt="Spiti Valley Image 1" class="img-fluid" loading="lazy">
+                                </a>
+                            </div>
+                            <div class="col-md-4 col-sm-6 mb-4">
+                                <a href="images/spiti/2.jpeg" data-fancybox="spiti-gallery">
+                                    <img src="images/spiti/2.jpeg" alt="Spiti Valley Image 2" class="img-fluid" loading="lazy">
+                                </a>
+                            </div>
+                            <div class="col-md-4 col-sm-6 mb-4">
+                                <a href="images/spiti/3.jpeg" data-fancybox="spiti-gallery">
+                                    <img src="images/spiti/3.jpeg" alt="Spiti Valley Image 3" class="img-fluid" loading="lazy">
+                                </a>
+                            </div>
+                            <div class="col-md-4 col-sm-6 mb-4">
+                                <a href="images/spiti/4.jpeg" data-fancybox="spiti-gallery">
+                                    <img src="images/spiti/4.jpeg" alt="Spiti Valley Image 4" class="img-fluid" loading="lazy">
+                                </a>
+                            </div>
+                            <div class="col-md-4 col-sm-6 mb-4">
+                                <a href="images/spiti/5.jpeg" data-fancybox="spiti-gallery">
+                                    <img src="images/spiti/5.jpeg" alt="Spiti Valley Image 5" class="img-fluid" loading="lazy">
+                                </a>
+                            </div>
+                            <div class="col-md-4 col-sm-6 mb-4">
+                                <a href="images/spiti/6.jpeg" data-fancybox="spiti-gallery">
+                                    <img src="images/spiti/6.jpeg" alt="Spiti Valley Image 6" class="img-fluid" loading="lazy">
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="carousel-caption">
+                        <h5>Spiti Valley</h5>
+                        <p>Embark on a breathtaking journey through Spiti Valley’s rugged terrain.</p>
+                    </div>
+                </div>
+                <!-- Slide 2: Nepal -->
+                <div class="item">
+                    <div class="nepal-gallery">
+                        <div class="row">
+                            <div class="col-md-4 col-sm-6 mb-4">
+                                <a href="images/nepal/1.jpeg" data-fancybox="nepal-gallery">
+                                    <img src="images/nepal/1.jpeg" alt="Nepal Image 1" class="img-fluid" loading="lazy">
+                                </a>
+                            </div>
+                            <div class="col-md-4 col-sm-6 mb-4">
+                                <a href="images/nepal/2.jpeg" data-fancybox="nepal-gallery">
+                                    <img src="images/nepal/2.jpeg" alt="Nepal Image 2" class="img-fluid" loading="lazy">
+                                </a>
+                            </div>
+                            <div class="col-md-4 col-sm-6 mb-4">
+                                <a href="images/nepal/3.jpeg" data-fancybox="nepal-gallery">
+                                    <img src="images/nepal/3.jpeg" alt="Nepal Image 3" class="img-fluid" loading="lazy">
+                                </a>
+                            </div>
+                            <div class="col-md-4 col-sm-6 mb-4">
+                                <a href="images/nepal/4.jpeg" data-fancybox="nepal-gallery">
+                                    <img src="images/nepal/4.jpeg" alt="Nepal Image 4" class="img-fluid" loading="lazy">
+                                </a>
+                            </div>
+                            <div class="col-md-4 col-sm-6 mb-4">
+                                <a href="images/nepal/5.jpeg" data-fancybox="nepal-gallery">
+                                    <img src="images/nepal/5.jpeg" alt="Nepal Image 5" class="img-fluid" loading="lazy">
+                                </a>
+                            </div>
+                            <div class="col-md-4 col-sm-6 mb-4">
+                                <a href="images/nepal/6.jpeg" data-fancybox="nepal-gallery">
+                                    <img src="images/nepal/6.jpeg" alt="Nepal Image 6" class="img-fluid" loading="lazy">
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="carousel-caption">
+                        <h5>Nepal</h5>
+                        <p>Discover the vibrant culture and breathtaking landscapes of Nepal.</p>
+                    </div>
+                </div>
+                <!-- Slide 3: Arunachal Pradesh -->
+                <div class="item">
+                    <div class="arunachal-gallery">
+                        <div class="row">
+                            <div class="col-md-4 col-sm-6 mb-4">
+                                <a href="images/arunachal/1.jpeg" data-fancybox="arunachal-gallery">
+                                    <img src="images/arunachal/1.jpeg" alt="Arunachal Pradesh Image 1" class="img-fluid" loading="lazy">
+                                </a>
+                            </div>
+                            <div class="col-md-4 col-sm-6 mb-4">
+                                <a href="images/arunachal/2.jpeg" data-fancybox="arunachal-gallery">
+                                    <img src="images/arunachal/2.jpeg" alt="Arunachal Pradesh Image 2" class="img-fluid" loading="lazy">
+                                </a>
+                            </div>
+                            <div class="col-md-4 col-sm-6 mb-4">
+                                <a href="images/arunachal/3.jpeg" data-fancybox="arunachal-gallery">
+                                    <img src="images/arunachal/3.jpeg" alt="Arunachal Pradesh Image 3" class="img-fluid" loading="lazy">
+                                </a>
+                            </div>
+                            <div class="col-md-4 col-sm-6 mb-4">
+                                <a href="images/arunachal/4.jpeg" data-fancybox="arunachal-gallery">
+                                    <img src="images/arunachal/4.jpeg" alt="Arunachal Pradesh Image 4" class="img-fluid" loading="lazy">
+                                </a>
+                            </div>
+                            <div class="col-md-4 col-sm-6 mb-4">
+                                <a href="images/arunachal/5.jpeg" data-fancybox="arunachal-gallery">
+                                    <img src="images/arunachal/5.jpeg" alt="Arunachal Pradesh Image 5" class="img-fluid" loading="lazy">
+                                </a>
+                            </div>
+                            <div class="col-md-4 col-sm-6 mb-4">
+                                <a href="images/arunachal/6.jpeg" data-fancybox="arunachal-gallery">
+                                    <img src="images/arunachal/6.jpeg" alt="Arunachal Pradesh Image 6" class="img-fluid" loading="lazy">
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="carousel-caption">
+                        <h5>Arunachal Pradesh</h5>
+                        <p>Experience the untouched beauty of Arunachal Pradesh.</p>
+                    </div>
+                </div>
+            </div>
+            <!-- Custom Toggle Buttons -->
+            <div class="toggle-buttons">
+                <button type="button" class="btn btn-primary active" data-slide="0">Spiti Valley</button>
+                <button type="button" class="btn btn-primary" data-slide="1">Nepal</button>
+                <button type="button" class="btn btn-primary" data-slide="2">Arunachal Pradesh</button>
+            </div>
         </div>
     </section>
-  </div>
+    <!-- End Gallery Section -->
 
-  <!--Scroll to top-->
-  <div class="scroll-to-top scroll-to-target" data-target="html"><span class="icon"><img src="images/icons/arrow-up.svg" alt="" title="Go To Top"></span></div>
+    <!--Scroll to top-->
+    <div class="scroll-to-top scroll-to-target" data-target="html"><span class="icon"><img src="images/icons/arrow-up.svg" alt="Go To Top" title="Go To Top"></span></div>
+    
+    <!-- JavaScript Files -->
+    <script src="js/jquery.js"></script>
+    <script src="js/popper.min.js"></script>
+    <script src="js/bootstrap.min.js"></script>
+    <script src="js/jquery-ui.js"></script>
+    <script src="js/jquery.fancybox.js"></script>
+    <script src="js/isotope.js"></script>
+    <script src="js/touchspin.js"></script>
+    <script src="js/owl.js"></script>
+    <script src="js/wow.js"></script>
+    <script src="js/custom-script.js"></script>
+    
+    <!-- Fancybox JS -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/fancybox/3.5.7/jquery.fancybox.min.js" integrity="sha512-FJN8Q2kAlr4JwmMZLnhNwFkYcXUraU3tV8p6qI6grbJ4V3CaeTv4vI5DfxjY4fZmXh7g6YB1LjK5I3gR3ueKqA==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
 
-  <script src="js/jquery.js"></script>
-  <script src="js/popper.min.js"></script>
-  <script src="js/bootstrap.min.js"></script>
-  <script src="js/custom-script.js"></script>
+    <!-- Inline JavaScript for Gallery Carousel Toggle Buttons -->
+    <script>
+        $(document).ready(function(){
+            // Initialize Owl Carousel for Gallery
+            var galleryCarousel = $('.gallery-carousel');
+            galleryCarousel.owlCarousel({
+                items:1,
+                loop:true,
+                margin:10,
+                nav:false,
+                dots:true,
+                autoplay:true,
+                autoplayTimeout:5000,
+                autoplayHoverPause:true
+            });
+
+            // Toggle Buttons Click Event
+            $('.toggle-buttons .btn').click(function(){
+                var slide = $(this).attr('data-slide');
+                galleryCarousel.trigger('to.owl.carousel', [slide, 300]);
+                $('.toggle-buttons .btn').removeClass('active');
+                $(this).addClass('active');
+            });
+
+            // Set first toggle button as active
+            $('.toggle-buttons .btn').first().addClass('active');
+
+            // Update toggle buttons on carousel change
+            galleryCarousel.on('changed.owl.carousel', function(event) {
+                var index = event.item.index % event.item.count;
+                $('.toggle-buttons .btn').removeClass('active');
+                $('.toggle-buttons .btn[data-slide="'+index+'"]').addClass('active');
+            });
+
+            // Initialize Fancybox for different galleries
+            $('[data-fancybox="spiti-gallery"]').fancybox({
+                loop: true,
+                buttons: [
+                    "zoom",
+                    "slideShow",
+                    "thumbs",
+                    "close"
+                ],
+            });
+            $('[data-fancybox="nepal-gallery"]').fancybox({
+                loop: true,
+                buttons: [
+                    "zoom",
+                    "slideShow",
+                    "thumbs",
+                    "close"
+                ],
+            });
+            $('[data-fancybox="arunachal-gallery"]').fancybox({
+                loop: true,
+                buttons: [
+                    "zoom",
+                    "slideShow",
+                    "thumbs",
+                    "close"
+                ],
+            });
+        });
+    </script>
+    
 </body>
 </html>
